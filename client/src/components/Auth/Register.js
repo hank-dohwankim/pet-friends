@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
 import styled from 'styled-components';
+import { setAlert } from '../../actions/alert';
+import { register } from '../../actions/auth';
+import PropTypes from 'prop-types';
 
-const Register = () => {
+const Register = ({ setAlert, register }) => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -17,9 +21,9 @@ const Register = () => {
   const onSubmit = async (e) => {
     e.preventDefault();
     if (password !== password2) {
-      console.log('Passwords do not match');
+      setAlert('Passwords do not match', 'danger');
     } else {
-      console.log('Success');
+      register({ name, email, password });
     }
   };
 
@@ -33,7 +37,7 @@ const Register = () => {
           name="name"
           value={name}
           onChange={(e) => onChange(e)}
-          required
+          // required
         />
         <input
           type="text"
@@ -41,7 +45,7 @@ const Register = () => {
           name="email"
           value={email}
           onChange={(e) => onChange(e)}
-          required
+          // required
         />
         <input
           type="password"
@@ -49,7 +53,7 @@ const Register = () => {
           name="password"
           value={password}
           onChange={(e) => onChange(e)}
-          required
+          // required
           minLength="6"
         />
         <input
@@ -58,7 +62,7 @@ const Register = () => {
           name="password2"
           value={password2}
           onChange={(e) => onChange(e)}
-          required
+          // required
           minLength="6"
         />
 
@@ -66,6 +70,11 @@ const Register = () => {
       </Form>
     </>
   );
+};
+
+Register.propTypes = {
+  setAlert: PropTypes.func.isRequired,
+  register: PropTypes.func.isRequired,
 };
 
 const Form = styled.form`
@@ -76,4 +85,4 @@ const Form = styled.form`
     margin: 5px;
   }
 `;
-export default Register;
+export default connect(null, { setAlert, register })(Register);
