@@ -36,6 +36,9 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
         <li>
           <Link to="/pet">Pets</Link>
         </li>
+        <li>
+          <Link to="/dashboard">Dashboard</Link>
+        </li>
       </ul>
       {!loading && <>{isAuthenticated ? authLinks : guestLinks}</>}
     </Nav>
