@@ -88,7 +88,7 @@ Register.propTypes = {
 };
 
 const mapStateToProps = (state) => () => ({
-  auth: state.auth.isAuthenticated,
+  isAuthenticated: state.auth.isAuthenticated,
 });
 
 const Form = styled.form`
