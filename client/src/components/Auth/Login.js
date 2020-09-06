@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
+import propTypes from 'prop-types';
+import { login } from '../../actions/auth';
 import styled from 'styled-components';
 
-const Login = () => {
+const Login = ({ login, isAuthenticated }) => {
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -15,8 +18,13 @@ const Login = () => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    console.log('Success');
+    login(email, password);
   };
+
+  // Redirect if logged in
+  if (isAuthenticated) {
+    return <Redirect to="/" />;
+  }
 
   return (
     <>
@@ -41,7 +49,7 @@ const Login = () => {
         />
         <input type="submit" value="Login" />
         <p>
-          If you already have account, &nbsp;
+          If you don't have account, &nbsp;
           <Link to="/register">Register</Link>
         </p>
       </Form>
@@ -57,4 +65,14 @@ const Form = styled.form`
     margin: 5px;
   }
 `;
-export default Login;
+
+Login.propTypes = {
+  login: propTypes.func.isRequired,
+  isAuthenticated: propTypes.bool,
+};
+
+const mapStateToProps = (state) => ({
+  isAuthenticated: state.auth.isAuthenticated,
+});
+
+export default connect(mapStateToProps, { login })(Login);

@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
+import { Link, Redirect } from 'react-router-dom';
 import styled from 'styled-components';
 import { setAlert } from '../../actions/alert';
 import { register } from '../../actions/auth';
 import PropTypes from 'prop-types';
 
-const Register = ({ setAlert, register }) => {
+const Register = ({ setAlert, register, isAuthenticated }) => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -26,6 +27,10 @@ const Register = ({ setAlert, register }) => {
       register({ name, email, password });
     }
   };
+
+  if (isAuthenticated) {
+    return <Redirect to="/" />;
+  }
 
   return (
     <>
@@ -67,6 +72,10 @@ const Register = ({ setAlert, register }) => {
         />
 
         <input type="submit" value="Register" />
+        <p>
+          If you already have account, &nbsp;
+          <Link to="/login">Login</Link>
+        </p>
       </Form>
     </>
   );
@@ -75,7 +84,12 @@ const Register = ({ setAlert, register }) => {
 Register.propTypes = {
   setAlert: PropTypes.func.isRequired,
   register: PropTypes.func.isRequired,
+  isAuthenticated: PropTypes.bool,
 };
+
+const mapStateToProps = (state) => () => ({
+  auth: state.auth.isAuthenticated,
+});
 
 const Form = styled.form`
   display: flex;
@@ -85,4 +99,5 @@ const Form = styled.form`
     margin: 5px;
   }
 `;
-export default connect(null, { setAlert, register })(Register);
+
+export default connect(mapStateToProps, { setAlert, register })(Register);
