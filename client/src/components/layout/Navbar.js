@@ -8,12 +8,12 @@ import styled from 'styled-components';
 const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
   const authLinks = (
     <ul>
-      {/* <li>
+      <li>
         <Link to="/dashboard">
           <i className="fas fa-user"></i>
           <span className="hide-sm">Dashboard</span>
         </Link>
-      </li> */}
+      </li>
       <li>
         <a onClick={logout} href="#!">
           <i className="fas fa-sign-out-alt"></i>
@@ -42,9 +42,9 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
         <li>
           <Link to="/pet">Pets</Link>
         </li>
-        <li>
+        {/* <li>
           <Link to="/dashboard">Dashboard</Link>
-        </li>
+        </li> */}
       </ul>
       {!loading && <>{isAuthenticated ? authLinks : guestLinks}</>}
     </Nav>
