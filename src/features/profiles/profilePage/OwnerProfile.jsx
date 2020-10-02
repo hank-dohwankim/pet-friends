@@ -1,8 +1,17 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import * as ReactBootstrap from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
+import ProfileIcon from "./ProfileIcon";
 
 export default function OwnerProfile() {
+  const [profile, setProfile] = useState([]);
+
+  useEffect(() => {
+    function loadData() {}
+
+    return function cleanup() {};
+  });
+
   return (
     <div>
       <div id="account-info">
@@ -13,16 +22,18 @@ export default function OwnerProfile() {
             className="w-25 p-3 rounded"
           />
           <ReactBootstrap.Col>
-            <h1>Username: </h1>
-            <p>Location: </p>
-            <p>Pets: </p>
+            <h1>Username: {}</h1>
+            <p>Location: {}</p>
+            <p>Pets: {}</p>
           </ReactBootstrap.Col>
         </ReactBootstrap.Row>
       </div>
 
       <div id="friends-section">
         <h1>Friends</h1>
-        <ReactBootstrap.Row></ReactBootstrap.Row>
+        <ReactBootstrap.Row>
+          <ProfileIcon />
+        </ReactBootstrap.Row>
       </div>
 
       <div id="fav-routes-section">
