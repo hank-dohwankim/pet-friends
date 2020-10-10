@@ -3,9 +3,6 @@ import {Container, Tabs, Tab} from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import OwnerProfile from "./OwnerProfile";
 import PetProfile from "./PetProfile";
-import {createStore} from 'redux';
-
-// const store = createStore()
 
 export default function ProfilePage() {
   return (
