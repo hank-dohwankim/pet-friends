@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import * as ReactBootstrap from "react-bootstrap";
+import {Image} from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function ProfileIcon() {
@@ -7,12 +7,12 @@ export default function ProfileIcon() {
 
   return (
     <div>
-      <ReactBootstrap.Image
+      <Image
         src="https://www.pinclipart.com/picdir/middle/157-1578186_user-profile-default-image-png-clipart.png"
         alt=""
         className="img-thumbnail"
         fluid
-      ></ReactBootstrap.Image>
+      ></Image>
       <ul>
         <li>pet 1</li>
         <li>pet 2</li>
