@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import {Row, Col, Image, Card, Button} from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import ProfileIcon from "./ProfileIcon";
+import {useSelector, useDispatch} from 'react-redux';
+import {add, remove} from '../actions';
 
 export default function OwnerProfile() {
   const [profile, setProfile] = useState([]);
@@ -12,6 +14,13 @@ export default function OwnerProfile() {
     return function cleanup() {};
   });
 
+  const numFollower = useSelector(state => state.numFollower);
+  const numFollowing = useSelector(state => state.numFollowing);
+  const numPet = useSelector(state => state.numPet);
+
+  const dispatch = useDispatch();
+  // onClick={() => dispatch(add())}
+  
   return (
     <div>
       <div id="account-info">
@@ -23,8 +32,12 @@ export default function OwnerProfile() {
           />
           <Col>
             <h1>Username: {}</h1>
+            <Row className="pl-3">
+              <p><span className="font-weight-bold">{numFollower}</span> followers</p>
+              <p><span className="font-weight-bold">{numFollowing}</span> following</p>
+            </Row>
             <p>Location: {}</p>
-            <p>Pets: {}</p>
+            <p>Pets: {numPet}</p>
           </Col>
         </Row>
       </div>

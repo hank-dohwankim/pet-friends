@@ -1,8 +1,8 @@
 const petCountReducer = (petCount = 0, action) => {
   switch (action.type) {
-    case "FOLLOW":
+    case "ADD":
       return petCount + 1
-    case "UNFOLLOW":
+    case "REMOVE":
       return petCount - 1
     default:
       return petCount
