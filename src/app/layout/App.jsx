@@ -1,5 +1,4 @@
 import React from 'react';
-import MeetingDashboard from '../../features/meetings/meetingDashboard/MeetingDashboard';
 import NavigationBar from "../../features/nav/NavigationBar";
 import { 
   BrowserRouter as Router,
@@ -19,7 +18,6 @@ function App() {
           </Route>
         </Switch>
       </Router>
-      <MeetingDashboard />
     </div>
   );
 }
