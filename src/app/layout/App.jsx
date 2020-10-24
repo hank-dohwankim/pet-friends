@@ -1,5 +1,5 @@
-import React from "react";
-import MeetingDashboard from "../../features/meetings/meetingDashboard/MeetingDashboard";
+import React from 'react';
+import MeetingDashboard from '../../features/meetings/meetingDashboard/MeetingDashboard';
 
 function App() {
   return (
