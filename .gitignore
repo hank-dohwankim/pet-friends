@@ -341,3 +341,6 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database
 healthchecksdb
+
+# Visual Studio Code Work Space
+*.code-workspace
