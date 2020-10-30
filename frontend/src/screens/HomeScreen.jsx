@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 // import { petList } from './../actions/petActions';
 import { Row, Col } from 'react-bootstrap';
 import pets from '../data/pets';
+import Pet from './../components/Pet';
 
 export const HomeScreen = () => {
   // const dispatch = useDispatch();
@@ -18,7 +19,7 @@ export const HomeScreen = () => {
       <Row>
         {pets.map((pet) => (
           <Col>
-            <p>{pet.breed}</p>
+            <Pet pet={pet} />
           </Col>
         ))}
       </Row>

@@ -1,36 +1,34 @@
 import React from 'react';
-import NavigationBar from './features/nav/NavigationBar';
-import { Container } from 'react-bootstrap';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import LoginForm from './features/auth/LoginForm';
-import Footer from './components/Footer';
-import styled from 'styled-components';
+
 import { HomeScreen } from './screens/HomeScreen';
+import { PetScreen } from './screens/PetScreen';
+import NavigationBar from './features/nav/NavigationBar';
+import Footer from './components/Footer';
+import LoginForm from './features/auth/LoginForm';
+
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { Container } from 'react-bootstrap';
+import styled from 'styled-components';
 
 function App() {
   return (
-    <div className="App">
+    <Router>
       <NavigationBar />
       <Main className="py-3">
-        <Router>
-          <Container>
-            <Switch>
-              <Route path="/">
-                <HomeScreen />
-              </Route>
-              <Route exact path="/login">
-                <LoginForm />
-              </Route>
-            </Switch>
-          </Container>
-        </Router>
+        <Container>
+          <Switch>
+            <Route path="/" component={HomeScreen} exact />
+            <Route path="/login" component={LoginForm} exact />
+            <Route path="/pet/:id" component={PetScreen} />
+          </Switch>
+        </Container>
       </Main>
       <Footer />
-    </div>
+    </Router>
   );
 }
 
-const Main = styled.div`
+const Main = styled.main`
   min-height: 90vh;
 `;
 
