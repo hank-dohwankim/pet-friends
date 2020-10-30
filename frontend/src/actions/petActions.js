@@ -1,3 +1,4 @@
+import axios from 'axios';
 import {
   PET_LIST_REQUEST,
   PET_LIST_SUCCESS,
@@ -6,13 +7,13 @@ import {
   PET_DETAILS_SUCCESS,
   PET_DETAILS_FAIL,
 } from '../constants/petConstants.js';
-import { getPetById, getPetList } from './../config/firestore/firestoreService';
+// import { getPetById, getPetList } from './../config/firestore/firestoreService';
 
-export const petDetail = (id) => async (dispatch) => {
+export const petDetailAction = (id) => async (dispatch) => {
   try {
     dispatch({ type: PET_DETAILS_REQUEST });
 
-    const { data } = await getPetById(id);
+    const { data } = await axios.get(`/api/pets/${data.id}`);
 
     dispatch({
       type: PET_DETAILS_SUCCESS,
@@ -29,11 +30,11 @@ export const petDetail = (id) => async (dispatch) => {
   }
 };
 
-export const petList = () => async (dispatch) => {
+export const listPetsAction = () => async (dispatch) => {
   try {
     dispatch({ type: PET_LIST_REQUEST });
-    let petList = getPetList();
-    const { data } = petList[0];
+
+    const { data } = await axios.get('/api/pets');
 
     dispatch({
       type: PET_LIST_SUCCESS,

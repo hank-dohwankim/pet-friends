@@ -7,7 +7,7 @@ export const PetScreen = ({ match }) => {
   const pet = pets.find((p) => p._id === match.params.id);
 
   return (
-    <p>
+    <>
       <Link className="btn btn-dark my-3" to="/">
         Go back
       </Link>
@@ -49,6 +49,6 @@ export const PetScreen = ({ match }) => {
           </ListGroup>
         </Col>
       </Row>
-    </p>
+    </>
   );
 };
