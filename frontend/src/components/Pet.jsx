@@ -6,7 +6,9 @@ const Pet = ({ pet }) => {
   return (
     <Link to={`/pet/${pet._id}`}>
       <PetInfo>
+        <p>{pet.name}</p>
         <p>{pet.breed}</p>
+        <p>{pet.sex}</p>
         <p>{pet.latitude}</p>
         <p>{pet.longitude}</p>
       </PetInfo>
