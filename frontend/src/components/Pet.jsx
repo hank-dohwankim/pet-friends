@@ -1,16 +1,21 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 
 const Pet = ({ pet }) => {
   return (
     <Link to={`/pet/${pet._id}`}>
-      <div>
+      <PetInfo>
         <p>{pet.breed}</p>
         <p>{pet.latitude}</p>
         <p>{pet.longitude}</p>
-      </div>
+      </PetInfo>
     </Link>
   );
 };
+
+const PetInfo = styled.div`
+  color: #000;
+`;
 
 export default Pet;

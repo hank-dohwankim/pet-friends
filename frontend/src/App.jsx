@@ -2,7 +2,7 @@ import React from 'react';
 
 import { HomeScreen } from './screens/HomeScreen';
 import { PetScreen } from './screens/PetScreen';
-import NavigationBar from './features/nav/NavigationBar';
+import NavigationBar from './components/NavigationBar';
 import Footer from './components/Footer';
 import LoginForm from './features/auth/LoginForm';
 

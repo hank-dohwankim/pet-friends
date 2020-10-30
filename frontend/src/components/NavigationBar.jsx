@@ -1,22 +1,23 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import Navbar from 'react-bootstrap/Navbar';
-import Nav from 'react-bootstrap/Nav';
+import { Navbar, Nav } from 'react-bootstrap';
+import { LinkContainer } from 'react-router-bootstrap';
 
 export default function NavigationBar() {
   return (
     <Navbar bg="light" expand="lg">
-      <Navbar.Brand>
-        <Link to={'/'}>Pet Friend</Link>
-      </Navbar.Brand>
-      <Nav className="ml-auto">
-        <Nav.Item>
-          <Link to={'/login'}>Login</Link>
-        </Nav.Item>
-        <Nav.Item>
-          <Link to={'/register'}>Sign up</Link>
-        </Nav.Item>
-      </Nav>
+      <LinkContainer to="/">
+        <Navbar.Brand>Pet Friend</Navbar.Brand>
+      </LinkContainer>
+      <LinkContainer to="/login">
+        <Nav.Link>
+          <p>Login</p>
+        </Nav.Link>
+      </LinkContainer>
+      <LinkContainer to="/register">
+        <Nav.Link>
+          <p>Sign up</p>
+        </Nav.Link>
+      </LinkContainer>
     </Navbar>
   );
 }
