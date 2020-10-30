@@ -1,0 +1,24 @@
+{
+  "name": "pet-friends",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "react-router-bootstrap": "^0.25.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hank-dohwankim/pet-friends.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hank-dohwankim/pet-friends/issues"
+  },
+  "homepage": "https://github.com/hank-dohwankim/pet-friends#readme"
+}
