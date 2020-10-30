@@ -25,8 +25,6 @@ app.post('/api/users/login', jsonParser, (req, res) => {
   const { email, password } = req.body;
 
   const user = users.find((u) => u.email === email);
-  console.log(req.body);
-  console.log(user);
   if (user && user.password == password) {
     res.json({
       _id: user.id,

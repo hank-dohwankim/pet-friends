@@ -3,6 +3,7 @@ import React from 'react';
 import { HomeScreen } from './screens/HomeScreen';
 import { PetScreen } from './screens/PetScreen';
 import { LoginScreen } from './screens/LoginScreen';
+import { RegisterScreen } from './screens/RegisterScreen';
 
 import NavigationBar from './components/NavigationBar';
 import Footer from './components/Footer';
@@ -20,6 +21,7 @@ function App() {
           <Switch>
             <Route path="/" component={HomeScreen} exact />
             <Route path="/login" component={LoginScreen} exact />
+            <Route path="/register" component={RegisterScreen} exact />
             <Route path="/pet/:id" component={PetScreen} />
           </Switch>
         </Container>
