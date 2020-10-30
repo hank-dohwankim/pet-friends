@@ -1,11 +1,8 @@
 import React from 'react';
-import NavigationBar from "../../features/nav/NavigationBar";
-import { 
-  BrowserRouter as Router,
-  Switch,
-  Route
-} from "react-router-dom";
-import LoginForm from "../../features/auth/LoginForm";
+import NavigationBar from './features/nav/NavigationBar';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import LoginForm from './features/auth/LoginForm';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -18,6 +15,7 @@ function App() {
           </Route>
         </Switch>
       </Router>
+      <Footer />
     </div>
   );
 }
