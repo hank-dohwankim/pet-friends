@@ -1,19 +1,27 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { petList } from './../actions/petActions';
-import { Row } from 'react-bootstrap';
+// import { petList } from './../actions/petActions';
+import { Row, Col } from 'react-bootstrap';
+import pets from '../data/pets';
 
 export const HomeScreen = () => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
-  const petContainer = useSelector((state) => state.petList);
-  const { pets, error } = petContainer;
+  // const petContainer = useSelector((state) => state.petList);
+  // const { pets, error } = petContainer;
 
-  useEffect(() => dispatch(petList()), [dispatch]);
+  // useEffect(() => dispatch(petList()), [dispatch]);
 
   return (
     <>
-      <Row>{pets}</Row>
+      <h1>Pets in my area</h1>
+      <Row>
+        {pets.map((pet) => (
+          <Col>
+            <p>{pet.breed}</p>
+          </Col>
+        ))}
+      </Row>
     </>
   );
 };
