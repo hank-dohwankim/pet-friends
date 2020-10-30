@@ -8,7 +8,10 @@ export default function NavigationBar() {
       <Navbar bg="light" expand="lg">
         <Container>
           <LinkContainer to="/">
-            <Navbar.Brand>Pet Friend</Navbar.Brand>
+            <Navbar.Brand>
+              <i class="fas fa-dog"></i>
+              Pet Friends
+            </Navbar.Brand>
           </LinkContainer>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
