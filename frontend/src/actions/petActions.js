@@ -13,7 +13,7 @@ export const petDetailAction = (id) => async (dispatch) => {
   try {
     dispatch({ type: PET_DETAILS_REQUEST });
 
-    const { data } = await axios.get(`/api/pets/${data.id}`);
+    const { data } = await axios.get(`/api/pets/${id}`);
 
     dispatch({
       type: PET_DETAILS_SUCCESS,

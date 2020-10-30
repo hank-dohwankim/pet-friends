@@ -1,10 +1,18 @@
 import React from 'react';
-import pets from '../data/pets';
 import { Link } from 'react-router-dom';
 import { Row, Col, Image, ListGroup, Button } from 'react-bootstrap';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { petDetailAction } from './../actions/petActions';
 
 export const PetScreen = ({ match }) => {
-  const pet = pets.find((p) => p._id === match.params.id);
+  const dispatch = useDispatch();
+  const petDetails = useSelector((state) => state.petDetails);
+  const { loading, error, pet } = petDetails;
+
+  useEffect(() => {
+    dispatch(petDetailAction(match.params.id));
+  }, [dispatch, match]);
 
   return (
     <>

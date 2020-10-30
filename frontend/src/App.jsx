@@ -2,9 +2,10 @@ import React from 'react';
 
 import { HomeScreen } from './screens/HomeScreen';
 import { PetScreen } from './screens/PetScreen';
+import { LoginScreen } from './screens/LoginScreen';
+
 import NavigationBar from './components/NavigationBar';
 import Footer from './components/Footer';
-import LoginForm from './features/auth/LoginForm';
 
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Container } from 'react-bootstrap';
@@ -18,7 +19,7 @@ function App() {
         <Container>
           <Switch>
             <Route path="/" component={HomeScreen} exact />
-            <Route path="/login" component={LoginForm} exact />
+            <Route path="/login" component={LoginScreen} exact />
             <Route path="/pet/:id" component={PetScreen} />
           </Switch>
         </Container>
