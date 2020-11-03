@@ -3,7 +3,6 @@ import {Row, Col, Image, Card, Button} from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import ProfileIcon from "./ProfileIcon";
 import {useSelector, useDispatch} from 'react-redux';
-import {add, remove} from '../actions';
 
 export default function OwnerProfile() {
   const [profile, setProfile] = useState([]);
