@@ -1,42 +1,43 @@
 import React, { useState, useEffect } from "react";
-import {Row, Col, Image, Card, Button} from "react-bootstrap";
+import { Row, Col, Image, Card, Button } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import ProfileIcon from "./ProfileIcon";
-import {useSelector, useDispatch} from 'react-redux';
+import { useSelector, useDispatch } from "react-redux";
 
-export default function OwnerProfile() {
-  const [profile, setProfile] = useState([]);
+import { profileLoadAction } from "../../actions/profileActions";
+
+export const OwnerProfile = (props) => {
+  const dispatch = useDispatch();
+  const profileLoader = useSelector((state) => state.profileLoad);
+  const { loading, error, profile } = profileLoader;
 
   useEffect(() => {
-    function loadData() {}
+    dispatch(profileLoadAction(props.id));
+  }, [dispatch, props]);
 
-    return function cleanup() {};
-  });
-
-  const numFollower = useSelector(state => state.numFollower);
-  const numFollowing = useSelector(state => state.numFollowing);
-  const numPet = useSelector(state => state.numPet);
-
-  const dispatch = useDispatch();
-  // onClick={() => dispatch(add())}
-  
   return (
     <div>
       <div id="account-info">
         <Row>
-          <Image
-            src="https://www.pinclipart.com/picdir/middle/157-1578186_user-profile-default-image-png-clipart.png"
-            alt="User Profile"
-            className="w-25 p-3 rounded"
-          />
-          <Col>
-            <h1>Username: {}</h1>
+          <Col sm={4}>
+            <Image
+              src="https://media.npr.org/assets/img/2017/06/03/gettyimages-453879976-59801bc8f1f6bda5175c3098bb0d9a28696394be.jpg"
+              alt="User Profile"
+              className="w-100 p-2 rounded"
+            />
+          </Col>
+          <Col sm={8}>
+            <h1>Username: {profile.username}</h1>
             <Row className="pl-3">
-              <p><span className="font-weight-bold">{numFollower}</span> followers</p>
-              <p><span className="font-weight-bold">{numFollowing}</span> following</p>
+              <p>
+                <strong>{profile.numFollowers}</strong> followers
+              </p>
+              <p>
+                <strong>{profile.numFollowing}</strong> following
+              </p>
             </Row>
-            <p>Location: {}</p>
-            <p>Pets: {numPet}</p>
+            <p>Location: {profile.area}</p>
+            <p>Pets: {profile.numPets}</p>
           </Col>
         </Row>
       </div>
@@ -57,19 +58,15 @@ export default function OwnerProfile() {
               scr="https://uwaterloo.ca/stratford-school-of-interaction-design-and-business/sites/ca.stratford-school-of-interaction-design-and-business/files/styles/body-500px-wide/public/uploads/images/walking_routes_1_hour_walk.jpg?itok=0zKxfvz8"
             />
             <Card.Body>
-              <Card.Title>
-                St. Vital Park
-              </Card.Title>
+              <Card.Title>St. Vital Park</Card.Title>
               <Card.Text>
                 My personal favourite route in the city of Winnipeg.
               </Card.Text>
-              <Button variant="primary">
-                Let's join
-              </Button>
+              <Button variant="primary">Let's join</Button>
             </Card.Body>
           </Card>
         </Row>
       </div>
     </div>
   );
-}
+};
