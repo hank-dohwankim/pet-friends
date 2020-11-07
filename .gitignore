@@ -344,3 +344,6 @@ healthchecksdb
 
 # Visual Studio Code Work Space
 *.code-workspace
+
+# Environmental File
+.env
