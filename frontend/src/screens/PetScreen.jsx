@@ -1,9 +1,9 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { Row, Col, Image, ListGroup, Button } from 'react-bootstrap';
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { petDetailAction } from './../actions/petActions';
+import React from "react";
+import { Link } from "react-router-dom";
+import { Row, Col, Image, ListGroup, Button } from "react-bootstrap";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { petDetailAction } from "./../actions/petActions";
 
 export const PetScreen = ({ match }) => {
   const dispatch = useDispatch();

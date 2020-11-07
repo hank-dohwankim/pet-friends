@@ -4,6 +4,7 @@ import { HomeScreen } from './screens/HomeScreen';
 import { PetScreen } from './screens/PetScreen';
 import { LoginScreen } from './screens/LoginScreen';
 import { RegisterScreen } from './screens/RegisterScreen';
+import { ProfileScreen } from './screens/ProfileScreen';
 
 import NavigationBar from './components/NavigationBar';
 import Footer from './components/Footer';
@@ -23,6 +24,7 @@ function App() {
             <Route path="/login" component={LoginScreen} exact />
             <Route path="/register" component={RegisterScreen} exact />
             <Route path="/pet/:id" component={PetScreen} />
+            <Route path="/profile/:id" component={ProfileScreen} />
           </Switch>
         </Container>
       </Main>

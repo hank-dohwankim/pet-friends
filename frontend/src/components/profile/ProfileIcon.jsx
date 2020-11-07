@@ -7,12 +7,6 @@ export default function ProfileIcon() {
 
   return (
     <div>
-      <Image
-        src="https://www.pinclipart.com/picdir/middle/157-1578186_user-profile-default-image-png-clipart.png"
-        alt=""
-        className="img-thumbnail"
-        fluid
-      ></Image>
       <ul>
         <li>pet 1</li>
         <li>pet 2</li>
