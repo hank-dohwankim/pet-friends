@@ -25,7 +25,7 @@ export default function GoogleMap(props) {
 	const defaultZoom = 10;
 
 	const pets = props.pets.map((pet) => {
-		return <AnyReactComponent 
+		return <AnyReactComponent key={pet._id}
 			lat={pet.latitude} 
 			lng={pet.longitude}
 			text={pet.name} />
