@@ -19,28 +19,31 @@ const AnyReactComponent = ({ text }) => (
 
 export default function GoogleMap(props) {
   const defaultLocation = {
-    lat: 49.8951,
-    lng: -97.1384,
+    center: {
+      lat: 49.8951,
+      lng: -97.1384,
+    },
+    zoom: 10,
   };
-
-  const defaultZoom = 10;
 
   const pets = props.pets.map((pet) => {
     return (
       <AnyReactComponent
-        lat={pet.latitude}
-        lng={pet.longitude}
+        key={pet._id}
+        lat={pet.location.latitude}
+        lng={pet.location.longitude}
         text={pet.name}
       />
     );
   });
+  console.log(pets);
 
   return (
     <div id="google-map" style={{ width: '100%', height: '400px' }}>
       <GoogleMapReact
         bootstrapURLKeys={{ key: process.env.REACT_APP_GOOGLE_MAP_API_KEY }}
-        defaultCenter={defaultLocation}
-        defaultZoom={defaultZoom}
+        defaultCenter={defaultLocation.center}
+        defaultZoom={defaultLocation.zoom}
       >
         {pets}
       </GoogleMapReact>

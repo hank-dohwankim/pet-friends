@@ -5,7 +5,6 @@ import Pet from './../components/Pet';
 import Message from '../components/utility/Message';
 import Loader from '../components/utility/Loader';
 import { listPetsAction } from '../actions/petActions';
-import GoogleMapReact from 'google-map-react';
 import GoogleMap from './../components/GoogleMap';
 
 export const HomeScreen = () => {

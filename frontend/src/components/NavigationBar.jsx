@@ -9,7 +9,7 @@ export default function NavigationBar() {
         <Container>
           <LinkContainer to="/">
             <Navbar.Brand>
-              <i class="fas fa-dog"></i>
+              <i className="fas fa-dog"></i>
               Pet Friends
             </Navbar.Brand>
           </LinkContainer>
