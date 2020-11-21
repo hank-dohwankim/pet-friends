@@ -1,50 +1,36 @@
-import express from "express";
-import dotenv from "dotenv";
-import pets from "./data/pets.js";
-import users from "./data/users.js";
-import profiles from "./data/profiles.js";
-import bodyParser from "body-parser";
+import path from 'path';
+import express from 'express';
+import dotenv from 'dotenv';
+import morgan from 'morgan';
+import colors from 'colors';
+import { notFound, errorHandler } from './middleware/errorMiddleware.js';
+import connectDB from './config/db.js';
+import userRoutes from './routes/userRoute.js';
+
+dotenv.config();
+
+connectDB();
 
 const app = express();
-var jsonParser = bodyParser.json();
-var urlencodedParser = bodyParser.urlencoded({ extended: false });
 
-app.get("/", (req, res) => {
-  res.send("API is running...");
-});
+if (process.env.NODE_ENV === 'development') {
+  app.use(morgan('dev'));
+}
 
-app.get("/api/pets", (req, res) => {
-  res.json(pets);
-});
+app.use(express.json());
 
-app.get("/api/pets/:id", (req, res) => {
-  const pet = pets.find((p) => p._id === req.params.id);
-  res.json(pet);
-});
+app.use('/api/users', userRoutes);
 
-app.get("/api/profiles/:id", (req, res) => {
-  const profile = profiles.find((p) => p._id === req.params.id);
-  res.json(profile);
-});
+const __dirname = path.resolve();
 
-app.post("/api/users/login", jsonParser, (req, res) => {
-  const { email, password } = req.body;
-
-  const user = users.find((u) => u.email === email);
-  if (user && user.password == password) {
-    res.json({
-      _id: user.id,
-      email: user.email,
-    });
-  } else {
-    res.status(401);
-    throw new Error("Invalid credentials");
-  }
-});
+app.use(notFound);
+app.use(errorHandler);
 
 const PORT = process.env.PORT || 5000;
 
 app.listen(
   PORT,
-  console.log(`Server running in ${process.env.NODE_ENV} mode on port ${PORT}`)
+  console.log(
+    `Server running in ${process.env.NODE_ENV} mode on port ${PORT}`.yellow.bold
+  )
 );
