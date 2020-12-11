@@ -7,7 +7,6 @@ import {
   PET_DETAILS_SUCCESS,
   PET_DETAILS_FAIL,
 } from '../constants/petConstants.js';
-// import { getPetById, getPetList } from './../config/firestore/firestoreService';
 
 export const petDetailAction = (id) => async (dispatch) => {
   try {
