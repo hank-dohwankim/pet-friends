@@ -21,6 +21,23 @@ const userSchema = mongoose.Schema(
       required: true,
       default: false,
     },
+    profile: {
+      numPets: {
+        type: Number,
+        default: 0,
+      },
+      area: {
+        type: String,
+      },
+      numFollowers: {
+        type: Number,
+        default: 0,
+      },
+      numFollowing: {
+        type: Number,
+        default: 0,
+      },
+    }
   },
   {
     timestamps: true,
