@@ -6,6 +6,8 @@ import colors from 'colors';
 import { notFound, errorHandler } from './middleware/errorMiddleware.js';
 import connectDB from './config/db.js';
 import userRoutes from './routes/userRoute.js';
+import petRoutes from './routes/petRoute.js';
+import profileRoutes from './routes/profileRoute.js';
 
 dotenv.config();
 
@@ -20,7 +22,8 @@ if (process.env.NODE_ENV === 'development') {
 app.use(express.json());
 
 app.use('/api/users', userRoutes);
-app.use('/api/pets', userRoutes);
+app.use('/api/pets', petRoutes);
+app.use('/api/profiles', profileRoutes);
 
 const __dirname = path.resolve();
 
