@@ -24,6 +24,9 @@ import {
   USER_UPDATE_FAIL,
   USER_UPDATE_SUCCESS,
   USER_UPDATE_REQUEST,
+  USER_CHECK_COOKIE_REQUEST,
+  USER_COOKIE_EXISTS,
+  USER_COOKIE_NOT_EXISTS
 } from '../constants/userConstants';
 
 export const loginAction = (email, password) => async (dispatch) => {
@@ -296,5 +299,20 @@ export const updateUser = (user) => async (dispatch, getState) => {
       type: USER_UPDATE_FAIL,
       payload: message,
     });
+  }
+};
+
+export const checkCookie = () => async (dispatch) => {
+  dispatch({ type: USER_CHECK_COOKIE_REQUEST });
+
+  const data = localStorage.getItem('userInfo');
+
+  if (data !== null) {
+    dispatch({
+      type: USER_COOKIE_EXISTS,
+      payload: data,
+    });
+  } else {
+    dispatch({ type: USER_COOKIE_NOT_EXISTS });
   }
 };

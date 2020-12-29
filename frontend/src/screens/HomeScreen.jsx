@@ -1,11 +1,12 @@
-import React, { Fragment, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { Row, Col, Container } from 'react-bootstrap';
-import Pet from './../components/Pet';
-import Message from '../components/utility/Message';
-import Loader from '../components/utility/Loader';
-import { listPetsAction } from '../actions/petActions';
-import GoogleMap from './../components/GoogleMap';
+import React, { Fragment, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Row, Col, Container } from "react-bootstrap";
+import Pet from "./../components/Pet";
+import Message from "../components/utility/Message";
+import Loader from "../components/utility/Loader";
+import { listPetsAction } from "../actions/petActions";
+import { checkCookie } from "../actions/userActions";
+import GoogleMap from "./../components/GoogleMap";
 
 export const HomeScreen = () => {
   const dispatch = useDispatch();
@@ -15,6 +16,7 @@ export const HomeScreen = () => {
 
   useEffect(() => {
     dispatch(listPetsAction());
+    dispatch(checkCookie());
   }, [dispatch]);
 
   return (

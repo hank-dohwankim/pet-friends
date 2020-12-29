@@ -17,6 +17,7 @@ import {
   USER_DELETE_REQUEST,
   USER_DELETE_SUCCESS,
   USER_DELETE_FAIL,
+  USER_COOKIE_EXISTS,
 } from '../constants/userConstants';
 
 export const userLoginReducer = (state = {}, action) => {
@@ -29,6 +30,8 @@ export const userLoginReducer = (state = {}, action) => {
       return { loading: false, error: action.payload };
     case USER_LOGOUT:
       return {};
+    case USER_COOKIE_EXISTS:
+      return { loading: false, ...JSON.parse(action.payload) };
     default:
       return state;
   }
